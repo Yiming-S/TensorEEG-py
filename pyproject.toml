@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tensoreeg"
+version = "0.10.0"
+description = "Physics-constrained EEG simulation and covariance-aware augmentation audit (Python port of TensorEEG R)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Yiming Shen", email = "yiming.shen001@umb.edu" }
+]
+keywords = ["EEG", "BCI", "covariance", "Riemannian", "SPD", "augmentation", "simulation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.4"]
+test = ["pytest>=7", "pytest-cov>=4"]
+dev  = ["pytest>=7", "pytest-cov>=4", "matplotlib>=3.4", "build", "twine"]
+
+[project.urls]
+Homepage   = "https://github.com/Yiming-S/TensorEEG-py"
+Repository = "https://github.com/Yiming-S/TensorEEG-py"
+"R package" = "https://github.com/Yiming-S/TensorEEG"
+Paper      = "https://github.com/Yiming-S/TensorEEG"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where   = ["src"]
+include = ["tensoreeg*"]
+
+[tool.setuptools.package-data]
+"tensoreeg.data" = ["*.npz", "*.npy", "*.csv"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
