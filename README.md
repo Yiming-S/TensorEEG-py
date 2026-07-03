@@ -3,7 +3,7 @@
 **Physics-Constrained EEG Simulation and Covariance-Aware Augmentation (Python)**
 
 <p align="center">
-  <img src="docs/cover.png"
+  <img src="docs/cover.svg"
        alt="TensorEEG cover: Simulate, SPD covariance, augmentation footprint, fidelity audit"
        width="100%">
 </p>
